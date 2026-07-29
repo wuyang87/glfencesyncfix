@@ -1,6 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.17.+'
-    id 'maven-publish'
+    id 'net.fabricmc.fabric-loom' version '1.17.+'
 }
 
 version = project.mod_version
@@ -14,8 +13,7 @@ repositories {}
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 }
 
 processResources {
@@ -34,10 +32,4 @@ java {
     withSourcesJar()
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
-}
-
-jar {
-    from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}" }
-    }
 }
